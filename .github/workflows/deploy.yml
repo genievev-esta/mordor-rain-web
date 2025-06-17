@@ -27,7 +27,7 @@ jobs:
           python3 -m pygbag --build --package mordor-rain-web --title "Mordor Rain" webapp
 
       - name: List build/web folder contents
-        run: ls -l build/web
+        run: ls -l webapp/build/web
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
