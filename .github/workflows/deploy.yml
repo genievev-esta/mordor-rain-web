@@ -24,7 +24,7 @@ jobs:
 
       - name: Build game
         run: |
-          python3 -m pygbag webapp --build --package mordor-rain-web --title 'Mordor Rain'
+          python3 -m pygbag --build --package mordor-rain-web --title "Mordor Rain" webapp
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
