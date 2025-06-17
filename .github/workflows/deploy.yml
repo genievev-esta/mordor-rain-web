@@ -13,6 +13,15 @@ jobs:
       - name: Install pygbag
         run: python3 -m pip install pygbag pygame-ce
 
+      - name: Show current directory
+        run: pwd
+
+      - name: List root directory files
+        run: ls -l
+
+      - name: List webapp folder contents
+        run: ls -l webapp
+
       - name: Build game
         run: |
           python3 -m pygbag webapp --build --package mordor-rain-web --title 'Mordor Rain'
