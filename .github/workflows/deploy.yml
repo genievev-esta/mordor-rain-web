@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: genievev-esta/mordor-kill-avoid
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          token: ${{ secrets.PUBLIC_REPO_PAT }}
           path: kill-avoid
 
       - name: Install pygbag
