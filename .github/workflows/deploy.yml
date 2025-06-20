@@ -16,6 +16,9 @@ jobs:
 
       - name: Install pygbag
         run: python3 -m pip install pygbag
+        
+      - name: Clean previous builds
+        run: rm -rf app/build
 
       - name: Build with pygbag
         run: python3 -m pygbag --build --package mordor-rain-web --title "Mordor Rain" app/
