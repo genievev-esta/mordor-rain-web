@@ -18,12 +18,12 @@ jobs:
         run: python3 -m pip install pygbag
 
       - name: Build with pygbag
-        run: python3 -m pygbag kill-avoid/app --build
+        run: python3 -m pygbag mordor-rain-web/app --build
 
       - name: Copy build output to publish folder
         run: |
           mkdir -p public-web
-          cp -r kill-avoid/app/build/web/* public-web/
+          cp -r mordor-rain-web/app/build/web/* public-web/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
