@@ -18,7 +18,7 @@ jobs:
         run: python3 -m pip install pygbag
 
       - name: Build with pygbag
-        run: python3 -m pygbag mordor-rain-web/app --build
+        run: python3 -m pygbag --build mordor-rain-web/app
 
       - name: Copy build output to publish folder
         run: |
