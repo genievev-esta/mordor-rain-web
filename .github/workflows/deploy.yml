@@ -20,9 +20,14 @@ jobs:
       - name: Build with pygbag
         run: python3 -m pygbag --build --package mordor-rain-web --title "Mordor Rain" app/
 
+      - name: Prepare publish directory
+        run: |
+          mkdir -p public-web
+          cp -r mordor-rain-web/app/build/web/* public-web/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: mordor-rain-web/app/build/web
+          publish_dir: public_web
           publish_branch: gh-pages
