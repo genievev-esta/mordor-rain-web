@@ -1,4 +1,4 @@
-name: Deploy from Private Repo
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -11,20 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Public Repo (this repo)
+      - name: Checkout this repository
         uses: actions/checkout@v3
-
-      - name: Clone Private Repo
-        uses: actions/checkout@v3
-        with:
-          repository: genievev-esta/mordor-kill-avoid
-          token: ${{ secrets.PRIVATE_REPO_PAT }}
-          path: kill-avoid
 
       - name: Install pygbag
         run: python3 -m pip install pygbag
 
-      - name: Build using pygbag from private repo
+      - name: Build with pygbag
         run: python3 -m pygbag kill-avoid/app --build
 
       - name: Copy build output to publish folder
@@ -37,3 +30,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public-web
+          publish_branch: gh-pages
