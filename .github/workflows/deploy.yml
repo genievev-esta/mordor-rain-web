@@ -23,9 +23,6 @@ jobs:
       - name: Build with pygbag
         run: python3 -m pygbag --build --package mordor-rain-web --title "Mordor Rain" app/
 
-      - name: Add .nojekyll file to build output
-        run: touch app/build/web/.nojekyll
-
       - name: Confirm pygbag output path
         run: |
           find . -type d -name web
