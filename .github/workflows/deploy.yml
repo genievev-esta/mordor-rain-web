@@ -1,48 +1,11 @@
-name: Deploy to GitHub Pages
+name: Codespace HTTP Preview
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+on: [push]
 
 jobs:
-  build-and-deploy:
+  serve:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout this repository
-        uses: actions/checkout@v3
-
-      - name: Install pygbag
-        run: python3 -m pip install pygbag
-
-      - name: Clean previous builds
-        run: rm -rf app/build/web
-
-      - name: Build with pygbag
-        run: python3 -m pygbag --build --package mordor-rain-web --title "Mordor Rain" app/
-
-      - name: Confirm pygbag output path
-        run: |
-          find . -type d -name web
-
-      - name: List app/build/web folder contents
-        run: ls -l app/build/web
-
-      - name: Debug built files
-        run: |
-          echo "Contents of build directory:"
-          ls -lah app/build/web
-
-      - name: Debug build output before deploy
-        run: |
-          echo "Checking contents of build output:"
-          ls -lah app/build/web
-           
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./app/build/web
-          publish_branch: gh-pages
+      - uses: actions/checkout@v3
+      - name: Start HTTP server
+        run: python -m http.server 8000
