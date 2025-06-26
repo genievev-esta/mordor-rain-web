@@ -12,7 +12,7 @@ jobs:
           cd app/build/web 
           python -m http.server 8000 &
 
-      - name: Wait for server to be ready
+      - name: Wait for server to be ready-debug
         uses: harryvasanth/wait-for-http-endpoint@v1
         with:
           url: http://localhost:8000
