@@ -10,12 +10,12 @@ jobs:
       - name: Start HTTP server
         run: |
           cd app/build/web 
-          python -m http.server 8000 &
+          python -m http.server 9000 &
 
       - name: Wait for server to be ready-debug
         uses: harryvasanth/wait-for-http-endpoint@v1
         with:
-          url: http://localhost:8000
+          url: http://localhost:9000
           method: GET
           expected-status: 200
           timeout: 60000
