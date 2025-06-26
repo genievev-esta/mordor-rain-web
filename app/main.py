@@ -30,5 +30,5 @@ pygame.init()
 
 #create surface
 screen = pygame.display.set_mode((SCREEN_HEIGHT, SCREEN_WIDTH))
-screen.fill("#50a565")
+screen.fill("#86a24b")
 pygame.quit()
